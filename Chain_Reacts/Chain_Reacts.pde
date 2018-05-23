@@ -14,6 +14,7 @@ void draw() {
     Ball b = new Ball();
     arr.add(b);
   }
+  background(255, 200, 200);
   for (Ball b : arr) {
     b.setInMotion();
   }

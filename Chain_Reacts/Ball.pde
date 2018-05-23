@@ -13,11 +13,13 @@ class Ball {
   }
 
   void setInMotion() {
-    if(xpos <= 0 || xpos >= 600) xspeed *= -1;
-    if(ypos <= 0 || ypos >= 600) yspeed *= -1;
+    if (xpos <= 0 || xpos >= 600) xspeed *= -1;
+    if (ypos <= 0 || ypos >= 600) yspeed *= -1;
     fill(c);
     xpos += xspeed;
     ypos += yspeed;
     ellipse(xpos, ypos, 50, 50);
   }
+
+
 }
