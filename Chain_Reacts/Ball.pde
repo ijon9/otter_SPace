@@ -1,9 +1,10 @@
 class Ball {
   color c;
-  float xpos, ypos, speed;
+  float xpos, ypos, xspeed, yspeed;
 
   Ball() {
-    speed = random(1, 10);
+    xspeed = random(1, 10);
+    yspeed = xspeed;
     xpos = random(600);
     ypos = random(600);
     c = color(random(100));
@@ -12,11 +13,11 @@ class Ball {
   }
 
   void setInMotion() {
-    if (xpos <= 0 || ypos <= 0 || xpos >= 600 || ypos >= 600)
-      speed *= -1;
+    if(xpos <= 0 || xpos >= 600) xspeed *= -1;
+    if(ypos <= 0 || ypos >= 600) yspeed *= -1;
     fill(c);
-    xpos += speed;
-    ypos += speed;
+    xpos += xspeed;
+    ypos += yspeed;
     //background(255, 200, 200);
     ellipse(xpos, ypos, 50, 50);
   }
