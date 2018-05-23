@@ -12,24 +12,12 @@ class Ball {
   }
 
   void setInMotion() {
-
-    if (xpos <= 0) {
-      xpos += speed;
-      ellipse(xpos, ypos, 50, 50);
-    }
-    if (xpos >= 600) {
-      xpos -= speed;
-      ellipse(xpos, ypos, 50, 50);
-    }
-    if (ypos <= 0) {
-      ypos += speed;
-      ellipse(xpos, ypos, 50, 50);
-    }
-    if (ypos >= 600) {
-      ypos -= speed;
-      ellipse(xpos, ypos, 50, 50);
-    } 
-    else
-      ellipse(xpos + speed, ypos + speed, 50, 50);
+    if (xpos <= 0 || ypos <= 0 || xpos >= 600 || ypos >= 600)
+      speed *= -1;
+    fill(c);
+    xpos += speed;
+    ypos += speed;
+    //background(255, 200, 200);
+    ellipse(xpos, ypos, 50, 50);
   }
 }

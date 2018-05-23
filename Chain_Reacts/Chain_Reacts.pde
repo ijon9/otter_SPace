@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 int balls = 0;
+ArrayList<Ball> arr = new ArrayList<Ball>();
 
 void setup() {
   size(600, 600);
@@ -6,11 +9,14 @@ void setup() {
 }
 
 void draw() {
-  
-  if(balls < 35) {
+
+  if (arr.size() < 35) {
     Ball b = new Ball();
-    balls += 1;
+    arr.add(b);
+  }
+  for (Ball b : arr) {
     b.setInMotion();
   }
+  
   
 }
