@@ -4,7 +4,7 @@ class Ball {
 
   Ball() {
     xspeed = random(1, 10);
-    yspeed = xspeed;
+    yspeed = random(1, 10);
     xpos = random(600);
     ypos = random(600);
     c = color(random(100));
@@ -18,7 +18,6 @@ class Ball {
     fill(c);
     xpos += xspeed;
     ypos += yspeed;
-    //background(255, 200, 200);
     ellipse(xpos, ypos, 50, 50);
   }
 }
