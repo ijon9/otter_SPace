@@ -14,10 +14,11 @@ class Ball {
     dy = random(1, 10);
     xpos = random(600);
     ypos = random(600);
+    rad = MAX_RADIUS / 2;
     noStroke();
     c = color(random(250), random(600), random(600));
     fill(c);
-    ellipse(xpos, ypos, 25, 25);
+    ellipse(xpos, ypos, rad, rad);
   }
 
   void move() {
@@ -26,13 +27,26 @@ class Ball {
     fill(c);
     xpos += dx; //Prepares coordinates of the translation
     ypos += dy;
-    ellipse(xpos, ypos, 25, 25); //Places the ellipse
+    state = MOVING;
+    ellipse(xpos, ypos, rad, rad); //Places the ellipse
   }
-  
+
   void grow() {
-    
+    state = GROWING;
+    rad += CHANGE_FACTOR;
+    ellipse(xpos, ypos, rad, rad); //Places the ellipse
+  }
+
+  void shrink() {
+    state = SHRINKING;
+    if (rad == 0) {
+      state = DEAD;
+      ellipse(xpos, ypos, rad, rad);
+    }
+    else {
+      rad -= CHANGE_FACTOR;
+      ellipse(xpos, ypos, rad, rad);
+    }
   }
   
-  void shrink() {
-  }
 }
