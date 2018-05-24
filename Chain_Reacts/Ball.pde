@@ -7,9 +7,10 @@ class Ball {
     yVel = random(1, 10);
     xpos = random(600);
     ypos = random(600);
-    c = color(random(100));
+    noStroke();
+    c = color(random(250), random(600), random(600));
     fill(c);
-    ellipse(xpos, ypos, 50, 50);
+    ellipse(xpos, ypos, 25, 25);
   }
 
   void move() {
@@ -18,8 +19,6 @@ class Ball {
     fill(c);
     xpos += xVel; //Prepares coordinates of the translation
     ypos += yVel;
-    ellipse(xpos, ypos, 50, 50); //Places the ellipse
+    ellipse(xpos, ypos, 25, 25); //Places the ellipse
   }
-
-
-} 
+}
