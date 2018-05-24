@@ -1,10 +1,10 @@
 class Ball {
   color c;
-  float xpos, ypos, xspeed, yspeed;
+  float xpos, ypos, xVel, yVel;
 
   Ball() {
-    xspeed = random(1, 10);
-    yspeed = random(1, 10);
+    xVel = random(1, 10);
+    yVel = random(1, 10);
     xpos = random(600);
     ypos = random(600);
     c = color(random(100));
@@ -12,14 +12,14 @@ class Ball {
     ellipse(xpos, ypos, 50, 50);
   }
 
-  void setInMotion() {
-    if (xpos <= 0 || xpos >= 600) xspeed *= -1;
-    if (ypos <= 0 || ypos >= 600) yspeed *= -1;
+  void move() {
+    if (xpos <= 0 || xpos >= 600) xVel *= -1; //Checks to make sure ball doesn't go out of field, negates velocity to make it go the other direction
+    if (ypos <= 0 || ypos >= 600) yVel *= -1;
     fill(c);
-    xpos += xspeed;
-    ypos += yspeed;
-    ellipse(xpos, ypos, 50, 50);
+    xpos += xVel; //Prepares coordinates of the translation
+    ypos += yVel;
+    ellipse(xpos, ypos, 50, 50); //Places the ellipse
   }
 
 
-}
+} 

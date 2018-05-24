@@ -16,7 +16,7 @@ void draw() {
   }
   background(255, 200, 200);
   for (Ball b : arr) {
-    b.setInMotion();
+    b.move();
   }
   
   
