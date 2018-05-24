@@ -18,6 +18,9 @@ void draw() {
   for (Ball b : arr) {
     b.move();
   }
-  
-  
+}
+
+void mouseClicked() {
+  Ball c = new Ball();
+  arr.add(c);
 }
