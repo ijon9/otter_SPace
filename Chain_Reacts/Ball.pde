@@ -22,7 +22,11 @@ class Ball {
     ypos = y;
     state = GROWING;
   }
-
+  
+  void setState(int n) {
+    state = n;  
+  }
+  
   void move() {
     if (xpos <= 0 || xpos >= 600) 
       dx *= -1; //Checks to make sure ball doesn't go out of field, negates velocity to make it go the other direction
@@ -38,6 +42,7 @@ class Ball {
     if (rad >= MAX_RADIUS) 
       state = SHRINKING;
     else {
+      fill(c);
       rad += CHANGE_FACTOR;
       ellipse(xpos, ypos, rad, rad); //Places the ellipse
     }
@@ -48,6 +53,7 @@ class Ball {
     if (rad <= 0) 
       state = DEAD;
     else {
+      fill(c);
       rad -= CHANGE_FACTOR;
       ellipse(xpos, ypos, rad, rad);
     }
