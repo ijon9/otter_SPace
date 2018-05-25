@@ -49,7 +49,6 @@ class Ball {
   }
 
   void shrink() {
-    state = SHRINKING;
     if (rad <= 0) 
       state = DEAD;
     else {
