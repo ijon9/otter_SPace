@@ -1,6 +1,6 @@
 class Ball {
-  final float CHANGE_FACTOR = 0.25; // Factor by which the ball grows or shrinks 
-  final float MAX_RADIUS = 75; // Maximum radius a ball can have
+  final float CHANGE_FACTOR = 0.5; // Factor by which the ball grows or shrinks 
+  final float MAX_RADIUS = 50; // Maximum radius a ball can have
   float xpos, ypos, dx, dy, rad;
   int state; // Use the first 4 constants to determine the state of the ball
   color c;
@@ -10,7 +10,7 @@ class Ball {
     dy = random(1, 10);
     xpos = random(600);
     ypos = random(600);
-    rad = 25;
+    rad = MAX_RADIUS/2;
     state = MOVING;
     noStroke();
     c = color(random(250), random(600), random(600));

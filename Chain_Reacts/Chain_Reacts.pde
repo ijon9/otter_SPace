@@ -23,12 +23,13 @@ void draw() {
   for (int i = 0; i < arr.size(); i++) {
     Ball b = arr.get(i); 
     //Chooses what the ball does based on its state
-//==============================================================
-    if (b.state == MOVING) { //b Moving
+//============================================================== b Moving
+    if (b.state == MOVING) { 
       //Checks for collision
-      for (int n = i+1; n < arr.size(); n++) {
+      for (int n = 0; n < arr.size(); n++) { //Checks each ball if it will collide
         Ball c = arr.get(n);
-        if (c.state == GROWING && (pow(pow((b.xpos - c.xpos), 2) + pow((b.ypos - c.ypos), 2), 0.5)) < b.rad/2 + c.rad/2) { 
+        if ((c.state == GROWING || c.state == SHRINKING) && (pow(pow((b.xpos - c.xpos), 2) + pow((b.ypos - c.ypos), 2), 0.5)) < b.rad/2 + c.rad/2) {
+          //If dist between the two (x, y) are less than the radii of the two circles added together, the two circles have collided
           b.setState(GROWING);
           break;
         }
@@ -41,8 +42,8 @@ void draw() {
       b.grow();
     if (b.state == SHRINKING) //b shrinking
       b.shrink();
-    if (b.state == DEAD) //b dead
-      arr.remove(i);
+      
+    //Do nothing if b is dead
   }
 }
 
